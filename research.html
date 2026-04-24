@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research — Anne Steuernagel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --text-primary: #1a1a1a;
+      --text-secondary: #5a5a5a;
+      --text-muted: #9a9a9a;
+      --border: #e2e2e2;
+      --bg: #fafaf8;
+      --accent: #7a1f2e;
+      --accent-light: #f5eaec;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(250,250,248,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 2rem;
+    }
+
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      font-weight: 400;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a.active { color: var(--accent); }
+
+    /* MAIN */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 4rem 0 3.5rem;
+    }
+
+    .page-header h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    /* IN-PAGE SUB-NAV */
+    .sub-nav {
+      display: flex;
+      gap: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .sub-nav a {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .sub-nav a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 3.5rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    /* PUBLICATIONS */
+    .pub-list { display: flex; flex-direction: column; gap: 1.75rem; }
+
+    .pub-item {
+      padding-left: 1rem;
+      border-left: 2px solid var(--border);
+      transition: border-color 0.15s;
+    }
+
+    .pub-item:hover { border-left-color: var(--accent); }
+
+    .pub-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+      line-height: 1.4;
+    }
+
+    .pub-title a { color: inherit; text-decoration: none; }
+    .pub-title a:hover { color: var(--accent); }
+
+    .pub-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .pub-venue {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    .pub-badges {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      border: 1px solid;
+    }
+
+    .badge-pdf { color: #7a2b1e; border-color: #e0b5af; background: #fdf3f2; }
+    .badge-code { color: #1e5c38; border-color: #afd8bf; background: #f2faf5; }
+    .badge-award { color: #7a5a1e; border-color: #e0cfaf; background: #fdf9f0; }
+
+    /* WORK IN PROGRESS & POLICY */
+    .wp-list { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .wp-item { display: flex; align-items: baseline; gap: 1rem; }
+
+    .wp-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      flex-shrink: 0;
+      margin-top: 0.55rem;
+    }
+
+    .wp-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--text-primary);
+    }
+
+    .wp-title a { color: inherit; text-decoration: none; }
+    .wp-title a:hover { color: var(--accent); }
+
+    .wp-status {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    footer {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { gap: 1.2rem; }
+      .sub-nav { gap: 1rem; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-name">Anne Steuernagel</a>
+      <ul class="nav-links">
+        <li><a href="research.html" class="active">Research</a></li>
+        <li><a href="cv.pdf">CV</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <div class="page-header">
+      <h2>Research</h2>
+      <div class="sub-nav">
+        <a href="#publications">Publications</a>
+        <a href="#work-in-progress">Work in Progress</a>
+        <a href="#policy-work">Selected Policy Work</a>
+      </div>
+    </div>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <p class="section-label">Publications</p>
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <div class="pub-title">
+            <a href="#">Labour Market Trends and Income Inequality in Germany, 1983–2020</a>
+          </div>
+          <div class="pub-meta">Anne Steuernagel, Maximilian Blömer, Elena Herold, Max Lay, Andreas Peichl, Ann-Christin Rathje, and Paul Schüle · 2024</div>
+          <div class="pub-venue">Fiscal Studies, 45(3), 325–342.</div>
+          <div class="pub-badges">
+            <span class="badge badge-pdf">Paper</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WORK IN PROGRESS -->
+    <section id="work-in-progress">
+      <p class="section-label">Work in Progress</p>
+      <div class="wp-list">
+
+        <div class="wp-item">
+          <div class="wp-dot"></div>
+          <div>
+            <div class="wp-title">Postponing Retirement and Mortality: The Role of Occupations</div>
+            <div class="wp-status">Work in Progress</div>
+          </div>
+        </div>
+
+        <div class="wp-item">
+          <div class="wp-dot"></div>
+          <div>
+            <div class="wp-title">What drives the decision to retire (early)?</div>
+            <div class="wp-status">Work in Progress</div>
+          </div>
+        </div>
+
+        <div class="wp-item">
+          <div class="wp-dot"></div>
+          <div>
+            <div class="wp-title">Beliefs about the returns to early childcare</div>
+            <div class="wp-status">Work in Progress</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SELECTED POLICY WORK -->
+    <section id="policy-work">
+      <p class="section-label">Selected Policy Work</p>
+      <div class="wp-list">
+
+        <div class="wp-item">
+          <div class="wp-dot"></div>
+          <div>
+            <div class="wp-title">
+              <a href="#">Konzeptionelle Weiterentwicklung der Sozialen Marktwirtschaft</a>
+            </div>
+            <div class="wp-status">Report · Bundesministerium für Wirtschaft und Klimaschutz, 2025</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>© 2026 Anne Steuernagel</footer>
+
+</body>
+</html>
