@@ -16,7 +16,6 @@
       --text-muted: #9a9a9a;
       --border: #e2e2e2;
       --bg: #fafaf8;
-      --bg-card: #ffffff;
       --accent: #7a1f2e;
       --accent-light: #f5eaec;
     }
@@ -77,7 +76,7 @@
 
     .nav-links a:hover { color: var(--accent); }
 
-    /* MAIN CONTAINER */
+    /* MAIN */
     main {
       max-width: 860px;
       margin: 0 auto;
@@ -91,7 +90,6 @@
       gap: 3rem;
       align-items: start;
       padding: 5rem 0 4rem;
-      border-bottom: 1px solid var(--border);
     }
 
     .hero-text h1 {
@@ -100,7 +98,6 @@
       font-weight: 500;
       line-height: 1.2;
       margin-bottom: 0.5rem;
-      color: var(--text-primary);
     }
 
     .hero-text .title {
@@ -120,10 +117,9 @@
       margin-bottom: 1.5rem;
     }
 
-
     .avatar {
-      width: 130px;
-      height: 130px;
+      width: 260px;
+      height: 260px;
       border-radius: 50%;
       border: 2px solid var(--border);
       overflow: hidden;
@@ -174,10 +170,8 @@
     /* SECTIONS */
     section {
       padding: 3.5rem 0;
-      border-bottom: 1px solid var(--border);
+      border-top: 1px solid var(--border);
     }
-
-    section:last-child { border-bottom: none; }
 
     .section-label {
       font-size: 0.75rem;
@@ -188,146 +182,18 @@
       margin-bottom: 2rem;
     }
 
-    /* NAV DROPDOWN */
-    .nav-item { position: relative; }
-
-    .nav-item:hover .nav-dropdown { display: block; }
-
-    .nav-dropdown {
-      display: none;
-      position: absolute;
-      top: calc(100% + 4px);
-      left: 50%;
-      transform: translateX(-50%);
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 0.4rem 0;
-      min-width: 160px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      z-index: 200;
-    }
-
-    .nav-dropdown a {
-      display: block;
-      padding: 0.4rem 1rem;
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .nav-dropdown a:hover { color: var(--accent); background: var(--accent-light); }
-
-    .nav-arrow {
-      font-size: 0.65rem;
-      margin-left: 3px;
-      opacity: 0.5;
-      vertical-align: middle;
-    }
     .interests {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-top: 0.5rem;
     }
 
     .tag {
       font-size: 0.8rem;
-      font-weight: 400;
       color: var(--accent);
       background: var(--accent-light);
       padding: 0.3rem 0.75rem;
       border-radius: 3px;
-    }
-
-    /* PUBLICATIONS */
-    .pub-list { display: flex; flex-direction: column; gap: 1.75rem; }
-
-    .pub-item {
-      padding-left: 1rem;
-      border-left: 2px solid var(--border);
-      transition: border-color 0.15s;
-    }
-
-    .pub-item:hover { border-left-color: var(--accent); }
-
-    .pub-title {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--text-primary);
-      margin-bottom: 0.25rem;
-      line-height: 1.4;
-    }
-
-    .pub-title a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .pub-title a:hover { color: var(--accent); }
-
-    .pub-meta {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .pub-venue {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      font-style: italic;
-    }
-
-    .pub-badges {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .badge {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      padding: 0.15rem 0.5rem;
-      border-radius: 3px;
-      border: 1px solid;
-    }
-
-    .badge-pdf { color: #7a2b1e; border-color: #e0b5af; background: #fdf3f2; }
-    .badge-code { color: #1e5c38; border-color: #afd8bf; background: #f2faf5; }
-    .badge-award { color: #7a5a1e; border-color: #e0cfaf; background: #fdf9f0; }
-
-    /* WORK IN PROGESS */
-    .wp-list { display: flex; flex-direction: column; gap: 1.25rem; }
-
-    .wp-item {
-      display: flex;
-      align-items: baseline;
-      gap: 1rem;
-    }
-
-    .wp-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--text-muted);
-      flex-shrink: 0;
-      margin-top: 0.55rem;
-    }
-
-    .wp-title {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.05rem;
-      color: var(--text-primary);
-    }
-
-    .wp-status {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 0.15rem;
     }
 
     /* CONTACT */
@@ -342,7 +208,6 @@
       font-size: 1.05rem;
       font-weight: 500;
       margin-bottom: 0.75rem;
-      color: var(--text-primary);
     }
 
     .contact-block p, .contact-block a {
@@ -354,7 +219,6 @@
 
     .contact-block a:hover { color: var(--accent); }
 
-    /* FOOTER */
     footer {
       max-width: 860px;
       margin: 0 auto;
@@ -367,7 +231,7 @@
 
     @media (max-width: 640px) {
       .hero { grid-template-columns: 1fr; }
-      .avatar { display: none; }
+      .avatar { width: 160px; height: 160px; order: -1; margin: 0 auto; }
       .contact-grid { grid-template-columns: 1fr; }
       .nav-links { gap: 1.2rem; }
     }
@@ -377,17 +241,10 @@
 
   <nav>
     <div class="nav-inner">
-      <a href="#" class="nav-name">Anne Steuernagel</a>
+      <a href="index.html" class="nav-name">Anne Steuernagel</a>
       <ul class="nav-links">
-        <li class="nav-item">
-          <a href="#research" style="cursor:pointer;">Research <span class="nav-arrow">▾</span></a>
-          <div class="nav-dropdown">
-            <a href="#publications">Publications</a>
-            <a href="#work-in-progress">Work in Progress</a>
-            <a href="#policy-work">Selected Policy Work</a>
-          </div>
-        </li>
-        <li><a href="cv.pdf">CV</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="CV.pdf">CV</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -395,43 +252,46 @@
 
   <main>
 
-    <!-- HERO -->
-    <section class="hero" style="border-bottom: 1px solid var(--border); padding-bottom: 4rem;">
+    <div class="hero">
       <div class="hero-text">
         <h1>Anne Steuernagel</h1>
-        <p class="title">Doctoral Candidate · ifo Institute · FAU Erlangen-Nuremberg</p>
+        <p class="title">ifo Institute · FAU Erlangen-Nuremberg</p>
         <p>
-          I am a PhD candidate at the Ifo Institute and the FAU Erlangen-Nuremberg. This year, I am visiting Harvard University (Spring 2026) and the University of Calgary (Fall 2026). 
-          My research interests lie at the intersection of Labor, Public, and Health Economics with a focus on the economics of aging and labor market situation of older individuals. Specifically,...
-          My single-author paper examines how job strain towards the end of working life shapes health post-retirement.
+          I am a PhD candidate at the ifo Institute and FAU Erlangen-Nuremberg. This year, I am visiting Harvard University (Spring 2026) and the University of Calgary (Fall 2026).<br />
+          My research interests lie at the intersection of labor, public, and health economics with a focus on the economics of aging and the labor market situation of older individuals.<br />
+          My job-market paper examines how job strain towards the end of working life shapes health post-retirement.
         </p>
         <div class="social-icons">
-          <!-- Bluesky -->
-          <a href="https://bsky.app/profile/steuernagel" title="Bluesky">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.204-.659-.299-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/></svg>
-          </a>
-          <!-- Twitter -->
-          <a href="https://twitter.com/steuernagel" title="Twitter">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.953 4.57a10 10 0 0 1-2.825.775 4.958 4.958 0 0 0 2.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 0 0-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 0 0-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 0 1-2.228-.616v.06a4.923 4.923 0 0 0 3.946 4.827 4.996 4.996 0 0 1-2.212.085 4.936 4.936 0 0 0 4.604 3.417 9.867 9.867 0 0 1-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 0 0 7.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0 0 24 4.59z"/></svg>
-          </a>
-          <!-- Email -->
           <a href="mailto:steuernagel@ifo.de" title="Email">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
           </a>
-          <!-- Briefcase / Academic profile -->
-          <a href="https://ifo.de/steuernagel-a" title="Academic profile">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.35C18 2.53 15.47 0 12.35 0c-1.71 0-3.24.76-4.35 1.96L6 4H4C2.9 4 2 4.9 2 6v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8-4c1.66 0 3 1.34 3 3 0 .35-.07.65-.18.95H9.18C9.07 5.65 9 5.35 9 5c0-1.66 1.34-3 3-3zm0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+          <a href="https://ifo.de/steuernagel-a" title="ifo profile">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 7H4C2.9 7 2 7.9 2 9v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2z"/>
+              <path d="M16 7V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2h8zm-6-2h4v2h-4V5z" opacity="0.9"/>
+              <line x1="2" y1="13" x2="22" y2="13" stroke="white" stroke-width="1.5" fill="none"/>
+            </svg>
           </a>
+          <a href="https://www.linkedin.com/in/anne-steuernagel-53a8191a5" title="LinkedIn">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>            
+          </a>
+          <a href="https://bsky.app/profile/steuernagel" title="Bluesky">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.204-.659-.299-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/></svg>
+          </a>
+          <a href="https://twitter.com/steuernagel" title="Twitter">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.953 4.57a10 10 0 0 1-2.825.775 4.958 4.958 0 0 0 2.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 0 0-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 0 0-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 0 1-2.228-.616v.06a4.923 4.923 0 0 0 3.946 4.827 4.996 4.996 0 0 1-2.212.085 4.936 4.936 0 0 0 4.604 3.417 9.867 9.867 0 0 1-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 0 0 7.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0 0 24 4.59z"/></svg>
+          </a>          
         </div>
       </div>
-      <!-- PHOTO: place your photo file named "photo.jpg" in the same folder as index.html -->
+      <!-- PHOTO: upload your photo named "photo.jpg" to the same folder as index.html -->
       <div class="avatar">
         <img src="photo.jpg" alt="Photo of Anne Steuernagel" onerror="this.style.display='none'; this.parentNode.style.background='var(--accent-light)';" />
       </div>
-    </section>
+    </div>
 
-    <!-- RESEARCH INTERESTS -->
-    <section id="research">
+    <section>
       <p class="section-label">Research Interests</p>
       <div class="interests">
         <span class="tag">Labor Economics</span>
@@ -442,89 +302,20 @@
       </div>
     </section>
 
-    <!-- PUBLICATIONS -->
-    <section id="publications">
-      <p class="section-label">Publications</p>
-      <div class="pub-list">
-
-        <div class="pub-item">
-          <div class="pub-title"><a href="#">Labour Market Trends and Income Inequality in Germany, 1983-2020</a></div>
-          <div class="pub-meta">Anne Steuernagel, Maximilian Blömer, Elena Herold, Max Lay, Andreas Peichl, Ann-Christin Rathje, and Paul Schüle · 2024</div>
-          <div class="pub-venue">Fiscal Studies, 45(3), 325-342.</div>
-          <div class="pub-badges">
-            <span class="badge badge-pdf">Paper</span>
-<!--        <span class="badge badge-code">Replication</span>  
-            <span class="badge badge-award">ASA Best Paper</span> -->
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- WORK IN PROGRESS -->
-    <section id="work-in-progress">
-      <p class="section-label">WOrk in Progress</p>
-      <div class="wp-list">
-
-        <div class="wp-item">
-          <div class="wp-dot"></div>
-          <div>
-            <div class="wp-title">Postponing Retirement and Mortality: The Role of Occupations</div>
-            <div class="wp-status">Work in Progress</div>
-          </div>
-        </div>
-
-        <div class="wp-item">
-          <div class="wp-dot"></div>
-          <div>
-            <div class="wp-title">What drives the decision to retire (early)?</div>
-            <div class="wp-status">Work in Progress</div>
-          </div>
-        </div>
-
-        <div class="wp-item">
-          <div class="wp-dot"></div>
-          <div>
-            <div class="wp-title">Beliefs about the returns to early childcare</div>
-            <div class="wp-status">Work in Progress</div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SELECTED POLICY WORK -->
-    <section id="policy-work">
-      <p class="section-label">Selected Policy Work</p>
-      <div class="wp-list">
-
-        <div class="wp-item">
-          <div class="wp-dot"></div>
-          <div>
-            <div class="wp-title"><a href="#" style="color: inherit; text-decoration: none;">Konzeptionelle Weiterentwicklung der Sozialen Marktwirtschaft</a></div>
-            <div class="wp-status">Report · Bundesministerium fuer Wirtschaft und Klimaschutz, 2025</div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CONTACT -->
     <section id="contact">
       <p class="section-label">Contact & Affiliation</p>
       <div class="contact-grid">
         <div class="contact-block">
           <h3>Get in touch</h3>
-          <p>
-            <a href="mailto:steuernagel@ifo.de">steuernagel@ifo.de</a><br />
-            Feel free to reach out about my research and connect.
-          </p>
+          <p><a href="mailto:steuernagel@ifo.de">Email me</a></p>
+          <p>Phone: +49(0)911/477904-4</p>
+          <br>
+          <p>Have any interesting research or want to know about mine? Feel free to reach out and connect!</p>
         </div>
         <div class="contact-block">
           <h3>Office</h3>
           <p>
-            ifo Institute – Leibniz Institute for Economic Research at the University Munich e.V.<br />
-            Ludwig Erhard ifo Center for Social Market Economy and Institutional Economics<br />
+            ifo Institute – Leibniz Institute for Economic Research at the University of Munich e.V.<br />
             Gartenstr. 6<br />
             90762 Fuerth<br />
             Germany
@@ -535,9 +326,7 @@
 
   </main>
 
-  <footer>
-    © 2026 Anne Steuernagel
-  </footer>
+  <footer>© 2026 Anne Steuernagel</footer>
 
 </body>
 </html>
