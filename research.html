@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research — Anne Steuernagel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --text-primary: #1a1a1a;
+      --text-secondary: #5a5a5a;
+      --text-muted: #9a9a9a;
+      --border: #e2e2e2;
+      --bg: #fafaf8;
+      --accent: #7a1f2e;
+      --accent-light: #f5eaec;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(250,250,248,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 2rem;
+    }
+
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      font-weight: 400;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a.active { color: var(--accent); }
+
+    /* MAIN */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    .page-header {
+      padding: 3rem 0 1.5rem;
+    }
+
+    .page-header h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 3.5rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    /* PUBLICATIONS */
+    .pub-list { display: flex; flex-direction: column; gap: 1.75rem; }
+
+    .pub-item {
+      padding-left: 1rem;
+      border-left: 2px solid var(--border);
+      transition: border-color 0.15s;
+    }
+
+    .pub-item:hover { border-left-color: var(--accent); }
+
+    .pub-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+      line-height: 1.4;
+    }
+
+    .pub-title a { color: inherit; text-decoration: none; }
+    .pub-title a:hover { color: var(--accent); }
+
+    .pub-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .pub-venue {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    .pub-badges {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      border: 1px solid;
+      text-decoration: none;
+    }
+
+    .badge-pdf { color: #7a2b1e; border-color: #e0b5af; background: #fdf3f2; }
+    .badge-code { color: #1e5c38; border-color: #afd8bf; background: #f2faf5; }
+    /* Media badge — muted blue-grey to distinguish from paper badges */
+    .badge-media { color: #2b3a7a; border-color: #afb8e0; background: #f2f4fd; }
+
+    /* WORK IN PROGRESS & POLICY */
+    .wp-list { display: flex; flex-direction: column; gap: 1.75rem; }
+
+    .wp-item { display: flex; align-items: baseline; gap: 1rem; }
+
+    .wp-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      flex-shrink: 0;
+      margin-top: 0.55rem;
+    }
+
+    .wp-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--text-primary);
+    }
+
+    .wp-title a { color: inherit; text-decoration: none; }
+    .wp-title a:hover { color: var(--accent); }
+
+    .wp-status {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    /* ABSTRACT TOGGLE */
+    .abstract-toggle {
+      display: inline-block;
+      width: 100%;
+      text-align: right;
+      margin-top: 0.4rem;
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .abstract-toggle:hover { color: var(--accent); }
+
+    .abstract-text {
+      display: none;
+      margin-top: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 620px;
+    }
+
+    footer {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { gap: 1.2rem; }
+    }
+  </style>
+
+  <script>
+    function toggleAbstract(btn) {
+      const abstract = btn.nextElementSibling;
+      const open = abstract.style.display === 'block';
+      abstract.style.display = open ? 'none' : 'block';
+      btn.textContent = open ? 'Abstract ▾' : 'Abstract ▴';
+    }
+  </script>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-name">Anne Steuernagel</a>
+      <ul class="nav-links">
+        <li><a href="research.html" class="active">Research</a></li>
+        <li><a href="cv.pdf">CV</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <div class="page-header">
+      <h2>Research</h2>
+    </div>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <p class="section-label">Publications</p>
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <div class="pub-title">
+            <a href="https://ifs.org.uk/sites/default/files/2024-12/Fiscal%20Studies%20-%202024%20-%20Bl%C3%B6mer%20-%20Labour%20market%20trends%20and%20income%20inequality%20in%20Germany%20%201983%202020.pdf" target="_blank">Labour Market Trends and Income Inequality in Germany, 1983–2020</a>
+          </div>
+          <div class="pub-meta">Maximilian Blömer, Elena Herold, Max Lay, Andreas Peichl, Ann-Christin Rathje, and Paul Schüle &amp; <strong>Anne Steuernagel</strong> · 2024</div>
+          <div class="pub-venue">Fiscal Studies, 45(3), 325–342.</div>
+          <div class="pub-badges">
+            <a href="https://ifs.org.uk/sites/default/files/2024-12/Fiscal%20Studies%20-%202024%20-%20Bl%C3%B6mer%20-%20Labour%20market%20trends%20and%20income%20inequality%20in%20Germany%20%201983%202020.pdf" target="_blank" class="badge badge-pdf">Paper</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WORK IN PROGRESS -->
+    <section id="work-in-progress">
+      <p class="section-label">Work in Progress</p>
+      <div class="wp-list">
+
+        <div class="wp-item">
+          <div class="wp-dot"></div>
+          <div>
+            <div class="wp-title">Postponing Retirement and Mortality: The Role of Occupations</div>
+            <div class="pub-meta"><strong>Anne Steuernagel</strong></div>
+         <!--   <div class="wp-status">Work in Progress</div> -->
+            <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract ▾</button>
+            <div class="abstract-text">
+              This paper examines the causal effect of extended working lives on mortality among German pensioners. I exploit a German pension reform that raised statutory retirement ages and introduced actuarial deductions for early retirement for specific cohorts, using this exogenous variation in retirement timing through an instrumental variable strategy. The analysis draws on pension records covering nearly the universe of German public pensioners, with precise information on retirement dates and mortality outcomes, allowing me to track survival up to ages 78–84. The results reveal substantial heterogeneity: for women in the sample, later retirement has no discernible causal effect on age at death, while for men, delayed retirement significantly increases longevity. Planned heterogeneity analyses will investigate the role of occupational strain in shaping post-retirement mortality. Robustness checks address concurrent labor market reforms and income effects arising from changes in benefit calculation. Overall, the findings indicate that extensions of working life do not uniformly reduce longevity and may even improve life expectancy for certain groups, highlighting important heterogeneity in the welfare implications of raising retirement ages.
+            </div>
+          </div>
+        </div>
+
+        <div class="wp-item">
+          <div class="wp-dot"></div>
+          <div>
+            <div class="wp-title">What drives the decision to retire (early)?</div>
+            <div class="pub-meta">Raphael Kroes, Sarah Necker, <strong>Anne Steuernagel</strong> &amp; Silke Uebelmesser</div>
+        <!--    <div class="wp-status">Work in Progress</div>   -->
+            </div>
+          </div>
+        </div>
+
+        <div class="wp-item">
+          <div class="wp-dot"></div>
+          <div>
+            <div class="wp-title">Beliefs about the returns to early childcare</div>
+            <div class="pub-meta">Marina Krauss &amp; <strong>Anne Steuernagel</strong></div>
+<!--        <div class="wp-status">Work in Progress</div>    -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SELECTED POLICY WORK -->
+    <section id="policy-work">
+      <p class="section-label">Selected Policy Work</p>
+      <div class="wp-list">
+
+        <div class="wp-item">
+          <div class="wp-dot"></div>
+          <div>
+            <div class="wp-title">
+              <a href="https://www.ifo.de/publikationen/2025/monographie-autorenschaft/weiterentwicklung-soziale-marktwirtschaft">Konzeptionelle Weiterentwicklung der Sozialen Marktwirtschaft</a>
+            </div>
+            <div class="pub-meta">Sarah Necker, Nicolas Bunde, Nina Czernach, Anita Dietrich, Oliver Falck, Clemens Fuest, Johannes Pfeiffer, Karen Pittel, Alexander Schmid, <strong>Anne Steuernagel</strong> &amp; Marcel Thum</div>
+            <div class="wp-status">Report · Bundesministerium für Wirtschaft und Klimaschutz, 2025</div>
+            <div class="pub-badges">
+              <!-- Add media badges below. Pattern: <a href="URL" target="_blank" class="badge badge-media">Outlet Name</a> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="wp-item">
+          <div class="wp-dot"></div>
+          <div>
+            <div class="wp-title">
+              <a href="https://www.ifo.de/en/econpol/publications/2024/article-journal/inequality-trends-context-changes-labor-market-outcomes">Inequality Trends in the Context of Changes in Labor Market Outcomes, Composition and Redistribution in Germany</a>
+            </div>
+            <div class="pub-meta">Maximilian Blömer, Max Lay, Andreas Peichl, Ann-Christin Rathje, Tamara Ritter, Paul Schüle &amp; <strong>Anne Steuernagel</strong></div>
+            <div class="wp-status">Article · EconPol Forum 25 (2) 47–52, 2024</div>
+            <div class="pub-badges">
+              <!-- <a href="URL" target="_blank" class="badge badge-media">Outlet Name</a> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="wp-item">
+          <div class="wp-dot"></div>
+          <div>
+            <div class="wp-title">
+              <a href="https://www.ifo.de/en/publications/2024/article-journal/arbeitsmarktdynamik-und-einkommensungleichheit-deutschland-ueberblick-1983-2020">Arbeitsmarktdynamik und Einkommensungleichheit in Deutschland: Ein Überblick von 1983 bis 2020</a>
+            </div>
+            <div class="pub-meta">Maximilian Blömer, Max Lay, Andreas Peichl, Ann-Christin Rathje, Tamara Ritter, Paul Schüle &amp; <strong>Anne Steuernagel</strong></div>
+            <div class="wp-status">Article · ifo Schnelldienst 77(05) 44–48, 2024</div>
+            <div class="pub-badges">
+              <!-- <a href="URL" target="_blank" class="badge badge-media">Outlet Name</a> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="wp-item">
+          <div class="wp-dot"></div>
+          <div>
+            <div class="wp-title">
+              <a href="https://ifs.org.uk/inequality/country-studies-germany">Inequality in Germany: 1983–2019</a>
+            </div>
+            <div class="pub-meta">Maximilian Blömer, Max Lay, Andreas Peichl, Ann-Christin Rathje, Tamara Ritter, Paul Schüle &amp; <strong>Anne Steuernagel</strong></div>
+            <div class="wp-status">Report · Country Studies: Inequalities in Europe and North America. Institute for Fiscal Studies, 2023</div>
+            <div class="pub-badges">
+              <!-- <a href="URL" target="_blank" class="badge badge-media">Outlet Name</a> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="wp-item">
+          <div class="wp-dot"></div>
+          <div>
+            <div class="wp-title">
+              <a href="https://www.ifo.de/en/publications/2023/article-journal/beitragsaufkommen-einkommenskomponenten-sozialversicherung">Wie viel Beitragsaufkommen lässt sich durch die Einbeziehung zusätzlicher Einkommenskomponenten in der Sozialversicherung erzielen?</a>
+            </div>
+            <div class="pub-meta"><strong>Anne Steuernagel</strong> &amp; Marcel Thum</div>
+            <div class="wp-status">Article · ifo Dresden berichtet, 2023, 30, Nr. 05 14–18</div>
+            <div style="display: flex; align-items: left; gap: 1rem;">
+            <div class="wp-status">Media coverage:</div>
+            <div class="pub-badges">
+            <a href="https://www.tagesschau.de/wirtschaft/finanzen/habeck-sozialabgaben-kapitalgewinne-100.html" target="_blank" class="badge badge-media">tagesschau.de</a>
+            <a href="https://www.wiwo.de/politik/deutschland/rentenbeitrag-werden-dividenden-zinsen-und-mieten-bald-einbezogen/100181300.html" target="_blank" class="badge badge-media">Wirtschaftswoche</a>
+            <a href="https://www.zeit.de/geld/2025-01/sozialabgaben-kapitalertraege-robert-habeck-krankenkassenbeitraege-sozialpolitik" target="_blank" class="badge badge-media">Zeit</a>
+            </div>
+            </div>  
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>© 2026 Anne Steuernagel</footer>
+
+</body>
+</html>
